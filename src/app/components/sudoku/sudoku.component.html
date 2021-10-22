@@ -1,0 +1,25 @@
+<div *ngFor="let i of array" style="display: flex;">
+    <button *ngFor="let j of array" (click)="open(i,j)" class="border border-dark">
+            <b *ngIf='sudoku_array[i][j]!==0'>
+            {{sudoku_array[i][j]}}
+            </b>
+            <div *ngIf='sudoku_array[i][j]===0' >
+                <div class="btn" *ngIf="onclick" >
+                    <select class="custom-select" id="inputGroupSelect02" (change)="change_array(i,j,$event)">
+                      <option selected value='0'>0</option>
+                      <option class="dropdown-item" value="1">1</option>
+                        <option class="dropdown-item" value="2">2</option>
+                        <option class="dropdown-item" value="3">3</option>
+                        <option class="dropdown-item" value="4">4</option>
+                        <option class="dropdown-item" value="5">5</option>
+                        <option class="dropdown-item" value="6">6</option>
+                        <option class="dropdown-item" value="7">7</option>
+                        <option class="dropdown-item"value="8">8</option>
+                        <option class="dropdown-item" value="9">9</option>
+                    </select>
+                    
+                  </div>
+            </div>
+    </button>
+</div>
+<div style="display: flex;"><button (click)="undo()">undo</button><button (click)="redo()">Redo</button></div>
